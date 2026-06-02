@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English Mission Hub - Login</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800;900&family=Inter:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="app-container">
+        <!-- 2. LOGIN / REGISTER PAGE -->
+        <div id="screen-login" class="screen active">
+            <div class="auth-container">
+                <div class="glass-card auth-card">
+                    <div class="auth-header">
+                        <i class="fa-solid fa-user-astronaut fa-3x text-accent"></i>
+                        <h2>Welcome Traveler</h2>
+                        <p>Login to resume your missions.</p>
+                    </div>
+                    <form id="login-form" onsubmit="handleLogin(event)">
+                        <div class="input-group">
+                            <i class="fa-solid fa-user"></i>
+                            <input type="text" id="username" placeholder="Username" required>
+                        </div>
+                        <div class="input-group">
+                            <i class="fa-solid fa-lock"></i>
+                            <input type="password" id="password" placeholder="Password" required>
+                            <i class="fa-solid fa-eye" id="toggle-password"></i>
+                        </div>
+                        <button type="submit" class="btn-primary btn-full">Login</button>
+                    </form>
+                    <div class="auth-footer">
+                        <p>Don't have an account? <a href="javascript:void(0)" onclick="navigateTo('register.html')"
+                                class="text-accent">Register here</a></p>
+                        <button class="btn-ghost" onclick="navigateTo('index.html')">Back to Home</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

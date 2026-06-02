@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English Mission Hub - Edit Profile</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800;900&family=Inter:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="app-container">
+        <div id="screen-settings" class="screen active layout-app">
+            <aside class="sidebar">
+                <div class="sidebar-logo">EMH</div>
+                <nav class="sidebar-nav">
+                    <button class="nav-item" onclick="navigateTo('dashboard.html')"><i class="fa-solid fa-house"></i>
+                        <span>Dashboard</span></button>
+                    <button class="nav-item" onclick="navigateTo('map.html')"><i
+                            class="fa-solid fa-map-location-dot"></i> <span>Missions Map</span></button>
+                    <button class="nav-item" onclick="navigateTo('daily_challenge.html')"><i
+                            class="fa-solid fa-bolt"></i> <span>Daily Challenge</span></button>
+                    <button class="nav-item" onclick="navigateTo('achievements.html')"><i class="fa-solid fa-medal"></i>
+                        <span>Achievements</span></button>
+                    <button class="nav-item" onclick="navigateTo('shop.html')"><i class="fa-solid fa-store"></i>
+                        <span>Shop</span></button>
+
+                </nav>
+                <div class="sidebar-bottom">
+                    <button class="nav-item active" onclick="navigateTo('settings.html')"><i
+                            class="fa-solid fa-user-edit"></i> <span>Edit Profile</span></button>
+                    <button class="nav-item text-danger" onclick="logout()"><i
+                            class="fa-solid fa-right-from-bracket"></i> <span>Logout</span></button>
+                </div>
+            </aside>
+            <main class="main-content">
+                <header class="topbar">
+                    <div class="greeting">
+                        <h2>Edit Profile</h2>
+                        <p>Update your personal information and avatar.</p>
+                    </div>
+                    <div class="profile-mini">
+                        <img src="" alt="Avatar">
+                    </div>
+                </header>
+
+                <div class="glass-card settings-panel" style="max-width: 500px; margin: 20px 0;">
+                    <form id="edit-profile-form" onsubmit="handleEditProfile(event)">
+                        <div class="input-group mb-3">
+                            <i class="fa-solid fa-envelope text-muted"></i>
+                            <input type="email" id="edit-email" placeholder="New Email Address" required>
+                        </div>
+                        <div class="input-group mb-3">
+                            <i class="fa-solid fa-user text-muted"></i>
+                            <input type="text" id="edit-username" placeholder="New Username" required>
+                        </div>
+                        <div class="input-group mb-3">
+                            <i class="fa-solid fa-calendar-day text-muted"></i>
+                            <input type="number" id="edit-age" placeholder="New Age" min="5" max="100" required>
+                        </div>
+
+                        <!-- Avatar Previews -->
+                        <div class="profile-preview-container flex-between mb-4"
+                            style="background: rgba(0,0,0,0.2); padding: 15px; border-radius: 12px;">
+                            <div class="preview-box" style="text-align: center;">
+                                <p class="text-muted text-small mb-2">Current</p>
+                                <img id="current-avatar-preview" src="" alt="Current"
+                                    style="width: 70px; height: 70px; border-radius: 50%; border: 2px solid rgba(255,255,255,0.2); object-fit: cover;">
+                            </div>
+                            <div class="text-muted"><i class="fa-solid fa-arrow-right-long fa-lg"></i></div>
+                            <div class="preview-box" style="text-align: center;">
+                                <p class="text-accent text-small mb-2">Preview</p>
+                                <img id="new-avatar-preview" src="" alt="New"
+                                    style="width: 70px; height: 70px; border-radius: 50%; border: 2px dashed var(--primary-blue); object-fit: cover; opacity: 0.5;">
+                            </div>
+                        </div>
+                        <div class="file-upload-wrapper mb-4">
+                            <label for="edit-profile-pic" class="file-upload-label">
+                                <i class="fa-solid fa-cloud-arrow-up text-accent"></i>
+                                <span>Upload New Avatar</span>
+                            </label>
+                            <input type="file" id="edit-profile-pic" accept="image/*" class="file-upload-input"
+                                onchange="updateFileName(this)">
+                            <div class="file-name-display"><i class="fa-solid fa-paperclip"></i> No file chosen</div>
+                        </div>
+                        <button type="submit" class="btn-primary btn-full"><i class="fa-solid fa-floppy-disk"></i> Save
+                            Changes</button>
+                    </form>
+                </div>
+            </main>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

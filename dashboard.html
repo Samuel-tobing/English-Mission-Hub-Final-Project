@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English Mission Hub - Dashboard</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800;900&family=Inter:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <div id="app-container">
+        <!-- 3. DASHBOARD PAGE -->
+        <div id="screen-dashboard" class="screen active layout-app">
+            <aside class="sidebar">
+                <div class="sidebar-logo">EMH</div>
+                <nav class="sidebar-nav">
+                    <button class="nav-item active" onclick="navigateTo('dashboard.html')"><i
+                            class="fa-solid fa-house"></i> <span>Dashboard</span></button>
+                    <button class="nav-item" onclick="navigateTo('map.html')"><i
+                            class="fa-solid fa-map-location-dot"></i> <span>Missions Map</span></button>
+                    <button class="nav-item" onclick="navigateTo('daily_challenge.html')"><i
+                            class="fa-solid fa-bolt"></i> <span>Daily Challenge</span></button>
+                    <button class="nav-item" onclick="navigateTo('achievements.html')"><i class="fa-solid fa-medal"></i>
+                        <span>Achievements</span></button>
+                    <button class="nav-item" onclick="navigateTo('shop.html')"><i class="fa-solid fa-store"></i>
+                        <span>Shop</span></button>
+
+                </nav>
+                <div class="sidebar-bottom">
+                    <button class="nav-item" onclick="navigateTo('settings.html')"><i class="fa-solid fa-user-edit"></i>
+                        <span>Edit Profile</span></button>
+                    <button class="nav-item text-danger" onclick="logout()"><i
+                            class="fa-solid fa-right-from-bracket"></i> <span>Logout</span></button>
+                </div>
+            </aside>
+            <main class="main-content">
+                <header class="topbar">
+                    <div class="greeting">
+                        <h2>Welcome back, <span id="dash-username" class="text-accent">Player</span>! 👋</h2>
+                        <p>Ready for your next mission?</p>
+                    </div>
+                    <div class="user-stats">
+                        <div class="stat-badge"><i class="fa-solid fa-fire text-orange"></i> <span
+                                id="dash-streak">0</span> Day Streak</div>
+                        <div class="stat-badge"><i class="fa-solid fa-coins text-gold"></i> <span
+                                id="dash-coins">0</span></div>
+                        <div class="profile-mini">
+                            <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Felix" alt="Avatar">
+                            <div class="level-indicator">Lv.<span id="dash-level">1</span></div>
+                        </div>
+                    </div>
+                </header>
+
+                <div class="dashboard-grid">
+                    <!-- XP Progress -->
+                    <div class="glass-card col-span-2">
+                        <div class="flex-between">
+                            <h3>Current Progress</h3>
+                            <span><span id="dash-xp">0</span> / <span id="dash-next-xp">100</span> XP</span>
+                        </div>
+                        <div class="progress-bar-container mt-2">
+                            <div class="progress-bar fill-accent" id="dash-xp-bar" style="width: 0%;"></div>
+                        </div>
+                    </div>
+
+                    <!-- Modules -->
+                    <div class="glass-card module-card" onclick="navigateTo('map.html')">
+                        <div class="module-icon text-blue"><i class="fa-solid fa-map-location-dot fa-2x"></i></div>
+                        <h3>Mission Map</h3>
+                        <p>Continue your English journey across various locations.</p>
+                        <button class="btn-primary mt-2">Open Map</button>
+                    </div>
+                    <div class="glass-card module-card special-module" onclick="navigateTo('email_triage.html')">
+                        <div class="module-icon text-danger"><i class="fa-solid fa-envelope-open-text fa-2x"></i></div>
+                        <h3>Email Triage [NEW]</h3>
+                        <p>Fast-paced corporate reading test. Sort the inbox!</p>
+                        <button class="btn-primary mt-2">Play Now</button>
+                    </div>
+
+                    <!-- Recommended Mission -->
+                    <div class="glass-card featured-mission">
+                        <div class="mission-icon bg-blue"><i class="fa-solid fa-mug-hot"></i></div>
+                        <div class="mission-info">
+                            <h3>Coffee Shop Order</h3>
+                            <p>Practice ordering coffee in a busy cafe.</p>
+                            <div class="tags">
+                                <span class="tag">Beginner</span>
+                                <span class="tag"><i class="fa-solid fa-star"></i> 50 XP</span>
+                            </div>
+                        </div>
+                        <button class="btn-primary" onclick="navigateTo('map.html')">Go to Map</button>
+                    </div>
+
+                    <!-- Daily Challenge -->
+                    <div class="glass-card daily-challenge-card">
+                        <div class="flex-between">
+                            <h3><i class="fa-solid fa-bolt text-yellow"></i> Daily Challenge</h3>
+                            <span class="timer">14:22:05</span>
+                        </div>
+                        <p class="mt-2">Fix 5 broken sentences about travel.</p>
+                        <button class="btn-secondary mt-3" onclick="navigateTo('daily_challenge.html')">Start Challenge
+                            (+100 XP)</button>
+                    </div>
+
+                    <!-- Flashcard Vocabulary Section (Moved from Map) -->
+                    <div class="flashcard-section glass-card col-span-2" id="flashcard-section">
+                        <h3 class="mb-3"><i class="fa-solid fa-clone text-accent"></i> Vocabulary Flashcards</h3>
+                        <div class="flashcard-container" id="flashcard-container" onclick="flipFlashcard()">
+                            <div class="flashcard" id="flashcard">
+                                <div class="flashcard-front">
+                                    <div class="fc-category" id="fc-category">Loading...</div>
+                                    <div class="fc-word" id="fc-word">Word</div>
+                                    <div class="fc-hint"><i class="fa-solid fa-hand-pointer"></i> Tap to flip</div>
+                                </div>
+                                <div class="flashcard-back">
+                                    <div class="fc-meaning" id="fc-meaning">Meaning</div>
+                                    <div class="fc-example" id="fc-example">"Example sentence."</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flashcard-nav mt-3">
+                            <button class="btn-icon" onclick="prevFlashcard(event)"><i class="fa-solid fa-chevron-left"></i></button>
+                            <span class="fc-counter" id="fc-counter">1 / 8</span>
+                            <button class="btn-icon" onclick="nextFlashcard(event)"><i class="fa-solid fa-chevron-right"></i></button>
+                        </div>
+                    </div>
+
+                </div>
+            </main>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

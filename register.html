@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English Mission Hub - Register</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800;900&family=Inter:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="app-container">
+        <!-- REGISTER PAGE -->
+        <div id="screen-register" class="screen active">
+            <div class="auth-container">
+                <div class="glass-card auth-card">
+                    <div class="auth-header">
+                        <i class="fa-solid fa-user-plus fa-3x text-accent"></i>
+                        <h2>Create Account</h2>
+                        <p>Join the mission to learn English.</p>
+                    </div>
+                    <form id="register-form" onsubmit="handleRegister(event)">
+                        <div class="input-group">
+                            <i class="fa-solid fa-envelope"></i>
+                            <input type="email" id="reg-email" placeholder="Email Address" required>
+                        </div>
+                        <div class="input-group">
+                            <i class="fa-solid fa-user"></i>
+                            <input type="text" id="reg-username" placeholder="Username" required>
+                        </div>
+                        <div class="input-group">
+                            <i class="fa-solid fa-calendar-day"></i>
+                            <input type="number" id="reg-age" placeholder="Age" min="5" max="100" required>
+                        </div>
+                        <div class="file-upload-wrapper">
+                            <label for="reg-profile-pic" class="file-upload-label">
+                                <i class="fa-solid fa-cloud-arrow-up text-accent"></i>
+                                <span>Upload Profile Picture</span>
+                            </label>
+                            <input type="file" id="reg-profile-pic" accept="image/*" class="file-upload-input"
+                                onchange="updateFileName(this)" required>
+                            <div class="file-name-display"><i class="fa-solid fa-paperclip"></i> No file chosen</div>
+                        </div>
+                        <div class="input-group">
+                            <i class="fa-solid fa-lock"></i>
+                            <input type="password" id="reg-password" placeholder="Password" required>
+                            <i class="fa-solid fa-eye" id="toggle-reg-password"></i>
+                        </div>
+                        <button type="submit" class="btn-primary btn-full">Register</button>
+                    </form>
+                    <div class="auth-footer">
+                        <p>Already have an account? <a href="javascript:void(0)" onclick="navigateTo('login.html')"
+                                class="text-accent">Login here</a></p>
+                        <button class="btn-ghost" onclick="navigateTo('index.html')">Back to Home</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PLACEMENT TEST MODAL -->
+        <div id="placement-test-overlay" class="placement-test-overlay">
+            <div class="placement-card">
+                <div class="pt-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                <h2>Placement Test</h2>
+                <p class="pt-subtitle">Answer 5 questions to determine your starting level.</p>
+
+                <div class="pt-progress" id="pt-progress">
+                    <div class="pt-dot active"></div>
+                    <div class="pt-dot"></div>
+                    <div class="pt-dot"></div>
+                    <div class="pt-dot"></div>
+                    <div class="pt-dot"></div>
+                </div>
+
+                <div id="pt-question-area">
+                    <div class="pt-question" id="pt-question-text">Loading question...</div>
+                    <div class="pt-options" id="pt-options">
+                        <!-- Options injected by JS -->
+                    </div>
+                </div>
+
+                <div id="pt-result-area" class="pt-result" style="display:none;">
+                    <h3>🎉 Test Complete!</h3>
+                    <p>Your English level is:</p>
+                    <div class="pt-level-badge" id="pt-level-badge">Beginner</div>
+                    <p class="pt-subtitle" id="pt-result-desc">You'll start at Level 1.</p>
+                    <button class="btn-primary btn-full mt-3" onclick="finalizePlacementAndLogin()">
+                        <i class="fa-solid fa-rocket"></i> Start Learning!
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English Mission Hub - Daily Challenge</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800;900&family=Inter:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="app-container">
+        <div id="screen-daily-challenge" class="screen active layout-app">
+            <aside class="sidebar">
+                <div class="sidebar-logo">EMH</div>
+                <nav class="sidebar-nav">
+                    <button class="nav-item" onclick="navigateTo('dashboard.html')"><i class="fa-solid fa-house"></i>
+                        <span>Dashboard</span></button>
+                    <button class="nav-item" onclick="navigateTo('map.html')"><i
+                            class="fa-solid fa-map-location-dot"></i> <span>Missions Map</span></button>
+                    <button class="nav-item active" onclick="navigateTo('daily_challenge.html')"><i
+                            class="fa-solid fa-bolt"></i> <span>Daily Challenge</span></button>
+                    <button class="nav-item" onclick="navigateTo('achievements.html')"><i class="fa-solid fa-medal"></i>
+                        <span>Achievements</span></button>
+                    <button class="nav-item" onclick="navigateTo('shop.html')"><i class="fa-solid fa-store"></i>
+                        <span>Shop</span></button>
+
+                </nav>
+                <div class="sidebar-bottom">
+                    <button class="nav-item" onclick="navigateTo('settings.html')"><i class="fa-solid fa-user-edit"></i>
+                        <span>Edit Profile</span></button>
+                    <button class="nav-item text-danger" onclick="logout()"><i
+                            class="fa-solid fa-right-from-bracket"></i> <span>Logout</span></button>
+                </div>
+            </aside>
+            <main class="main-content">
+                <header class="topbar">
+                    <div class="greeting">
+                        <h2>Daily Challenge: <span class="text-accent">Tone Sorter</span> <i
+                                class="fa-solid fa-bolt text-yellow"></i></h2>
+                        <p>Today's Mission: Drag the dropping phrases into the correct context bucket!</p>
+                    </div>
+                </header>
+
+                <div class="glass-card tone-sorter-container">
+                    <div class="game-hud flex-between">
+                        <div class="score-hud">Score: <span id="tone-score">0</span></div>
+                        <div class="timer-hud"><i class="fa-solid fa-clock"></i> <span id="tone-timer">30</span>s</div>
+                    </div>
+
+                    <div class="drop-area" id="phrase-drop-area">
+                        <!-- Phrases will appear here -->
+                        <div class="falling-phrase" id="current-phrase">"What's up, man?"</div>
+                    </div>
+
+                    <div class="bucket-area">
+                        <div class="tone-bucket formal" onclick="sortTone('formal')">
+                            <i class="fa-solid fa-user-tie"></i>
+                            <h4>Formal</h4>
+                            <small>Business / Professional</small>
+                        </div>
+                        <div class="tone-bucket casual" onclick="sortTone('casual')">
+                            <i class="fa-solid fa-user-group"></i>
+                            <h4>Casual</h4>
+                            <small>Friends / Normal</small>
+                        </div>
+                        <div class="tone-bucket slang" onclick="sortTone('slang')">
+                            <i class="fa-solid fa-fire"></i>
+                            <h4>Slang</h4>
+                            <small>Very Informal</small>
+                        </div>
+                    </div>
+
+                    <div class="start-overlay" id="tone-start-overlay">
+                        <button class="btn-primary btn-large pulse-effect" onclick="startToneGame()">Start
+                            Challenge</button>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

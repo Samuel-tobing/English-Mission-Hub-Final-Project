@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English Mission Hub - Email Triage</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800;900&family=Inter:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="app-container">
+        <div id="screen-email-triage" class="screen active layout-app">
+            <aside class="sidebar">
+                <div class="sidebar-logo">EMH</div>
+                <nav class="sidebar-nav">
+                    <button class="nav-item" onclick="navigateTo('dashboard.html')"><i class="fa-solid fa-house"></i>
+                        <span>Dashboard</span></button>
+                    <button class="nav-item" onclick="navigateTo('map.html')"><i
+                            class="fa-solid fa-map-location-dot"></i> <span>Missions Map</span></button>
+                    <button class="nav-item" onclick="navigateTo('daily_challenge.html')"><i
+                            class="fa-solid fa-bolt"></i> <span>Daily Challenge</span></button>
+                    <button class="nav-item" onclick="navigateTo('achievements.html')"><i class="fa-solid fa-medal"></i>
+                        <span>Achievements</span></button>
+                    <button class="nav-item" onclick="navigateTo('shop.html')"><i class="fa-solid fa-store"></i>
+                        <span>Shop</span></button>
+
+                </nav>
+                <div class="sidebar-bottom">
+                    <button class="nav-item" onclick="navigateTo('settings.html')"><i class="fa-solid fa-user-edit"></i>
+                        <span>Edit Profile</span></button>
+                    <button class="nav-item text-danger" onclick="logout()"><i
+                            class="fa-solid fa-right-from-bracket"></i> <span>Logout</span></button>
+                </div>
+            </aside>
+            <main class="main-content">
+                <header class="topbar">
+                    <div class="greeting">
+                        <h2>Email Triage <i class="fa-solid fa-envelope text-primary"></i></h2>
+                        <p>Sort incoming emails fast! Urgent, Spam, or FYI?</p>
+                    </div>
+                </header>
+
+                <div class="triage-container">
+                    <div class="game-hud flex-between">
+                        <div class="score-hud">Score: <span id="triage-score">0</span></div>
+                        <div class="timer-hud"><i class="fa-solid fa-clock"></i> <span id="triage-timer">30</span>s
+                        </div>
+                    </div>
+
+                    <div class="phone-frame">
+                        <div class="email-card" id="email-card">
+                            <div class="email-sender" id="email-sender">HR Department</div>
+                            <div class="email-subject" id="email-subject">Policy Update</div>
+                            <div class="email-body" id="email-body">Please review the new dress code policy attached
+                                before next month.</div>
+                        </div>
+                    </div>
+
+                    <div class="triage-actions">
+                        <button class="btn-triage spam" onclick="sortEmail('spam')"><i class="fa-solid fa-trash"></i>
+                            SPAM</button>
+                        <button class="btn-triage fyi" onclick="sortEmail('fyi')"><i class="fa-solid fa-folder"></i>
+                            FYI</button>
+                        <button class="btn-triage urgent" onclick="sortEmail('urgent')"><i
+                                class="fa-solid fa-triangle-exclamation"></i> URGENT</button>
+                    </div>
+
+                    <div class="start-overlay" id="triage-start-overlay">
+                        <button class="btn-primary btn-large pulse-effect" onclick="startTriageGame()">Start Triage
+                            Shift</button>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

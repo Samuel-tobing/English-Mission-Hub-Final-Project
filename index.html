@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English Mission Hub - Landing</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800;900&family=Inter:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="app-container">
+        <!-- 1. LANDING PAGE -->
+        <div id="screen-landing" class="screen active">
+            <nav class="navbar">
+                <div class="logo">
+                    <i class="fa-solid fa-globe"></i> English Mission Hub
+                </div>
+                <div class="nav-links">
+                    <a href="javascript:void(0)" onclick="navigateTo('index.html')">Home</a>
+                    <a href="javascript:void(0)" onclick="scrollToSection('features')">Features</a>
+                    <a href="javascript:void(0)" onclick="openAboutModal()">About Developer</a>
+                    <button class="btn-secondary" onclick="navigateTo('login.html')">Login</button>
+                    <button class="btn-primary" onclick="navigateTo('register.html')">Register</button>
+                </div>
+            </nav>
+            <div class="hero-section" id="home">
+                <div class="particles-container">
+                    <div class="particle" style="width: 5px; height: 5px; left: 10%; animation-duration: 8s;"></div>
+                    <div class="particle"
+                        style="width: 8px; height: 8px; left: 30%; animation-duration: 12s; animation-delay: 2s;"></div>
+                    <div class="particle"
+                        style="width: 4px; height: 4px; left: 50%; animation-duration: 6s; animation-delay: 4s;"></div>
+                    <div class="particle"
+                        style="width: 7px; height: 7px; left: 70%; animation-duration: 10s; animation-delay: 1s;"></div>
+                    <div class="particle"
+                        style="width: 10px; height: 10px; left: 90%; animation-duration: 15s; animation-delay: 3s;">
+                    </div>
+                </div>
+                <div class="hero-content">
+                    <div class="badge-new">New Update v2.0</div>
+                    <h1 class="glow-text">Master English Through <span class="text-accent">Real-Life Missions</span>
+                    </h1>
+                    <p class="tagline">Not just another quiz. Learn language practically by completing scenarios like ordering coffee, mediating office conflicts, and writing corporate emails.</p>
+                    <div class="hero-actions">
+                        <button class="btn-primary btn-large pulse-effect" onclick="navigateTo('login.html')">Start Your
+                            Mission <i class="fa-solid fa-rocket"></i></button>
+                    </div>
+                </div>
+                <div class="hero-illustration">
+                    <div class="floating-card c1"><i class="fa-solid fa-mug-hot"></i> Coffee Shop</div>
+                    <div class="floating-card c2"><i class="fa-solid fa-plane-departure"></i> Airport Mission</div>
+                    <div class="floating-card c3"><i class="fa-solid fa-envelope"></i> Email Triage</div>
+                </div>
+            </div>
+
+            <!-- Features Section -->
+            <section id="features" class="landing-section">
+                <h2 class="section-title text-center">Groundbreaking Features</h2>
+                <p class="text-center text-muted mb-4">Experience a totally unique approach to learning.</p>
+                <div class="features-grid">
+                    <div class="feature-card glass-card">
+                        <i class="fa-solid fa-store text-accent fa-3x mb-3"></i>
+                        <h3>Interactive Cosmetics Shop</h3>
+                        <p>Earn coins by completing missions and purchase unique Dashboard Themes, Avatar Borders, and powerful Boosters to enhance your gameplay.</p>
+                    </div>
+                    <div class="feature-card glass-card">
+                        <i class="fa-solid fa-bolt text-gold fa-3x mb-3"></i>
+                        <h3>Fast-Paced Mini Games</h3>
+                        <p>Sort falling tones or triage corporate emails before the timer runs out. High pressure, high reward. Can you keep up?</p>
+                    </div>
+                    <div class="feature-card glass-card">
+                        <i class="fa-solid fa-medal text-blue fa-3x mb-3"></i>
+                        <h3>Dynamic Achievements</h3>
+                        <p>Unlock beautifully animated badges by leveling up, mastering the daily challenges, and exploring all locations on the Mission Map.</p>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+
+        <!-- About Developer Modal -->
+        <div id="about-modal" class="modal-overlay">
+            <div class="modal-content glass-card fade-in-up" style="max-width: 600px; text-align: center;">
+                <span class="close-btn" onclick="closeAboutModal()"><i class="fa-solid fa-xmark"></i></span>
+                <img src="assets/hahay.png" alt="Samuel" class="profile-img mb-2"
+                    style="width:120px; height:120px; object-fit:cover; border-radius:50%; border:3px solid var(--accent-gold); margin: 0 auto; display: block;">
+                <h2 class="glow-text text-accent mb-1 mt-3">Samuel Christian Lumbantobing</h2>
+                <div class="student-id mb-2 text-muted"><i class="fa-solid fa-id-card"></i> NIM: 2505181066</div>
+                <div class="university mb-3 text-muted"><i class="fa-solid fa-building-columns"></i> Politeknik Negeri
+                    Medan</div>
+
+                <div class="skills mt-3 mb-4" style="display:flex; justify-content:center; gap:10px; flex-wrap:wrap;">
+                    <span class="badge" style="background:var(--primary-blue); padding:5px 10px; border-radius:10px;"><i
+                            class="fa-solid fa-code"></i> Full-Stack Web Architect</span>
+                    <span class="badge"
+                        style="background:var(--accent-gold); color:var(--bg-dark); padding:5px 10px; border-radius:10px;"><i
+                            class="fa-solid fa-wand-magic-sparkles"></i> Interactive UI/UX Designer</span>
+                    <span class="badge" style="background:var(--danger-red); padding:5px 10px; border-radius:10px;"><i
+                            class="fa-solid fa-robot"></i> AI Prompt Engineer</span>
+                </div>
+
+                <p class="about-desc text-muted" style="line-height:1.6;">
+                    This cutting-edge <strong>English Mission Hub</strong> was meticulously engineered from the ground
+                    up as an innovative, final project for the <em>English Conversation</em> course. Bypassing
+                    traditional, monotonous learning methods, this platform merges high-fidelity web design, responsive
+                    gamification, and pragmatics-based challenges to deliver an immersive educational experience.
+                </p>
+            </div>
+        </div>
+
+        <!-- Back to top button -->
+        <button id="back-to-top" onclick="window.scrollTo({top:0, behavior:'smooth'})">
+            <i class="fa-solid fa-arrow-up"></i>
+        </button>
+    </div>
+
+    <script>
+        // Back to top visibility
+        window.addEventListener('scroll', () => {
+            const btn = document.getElementById('back-to-top');
+            if (window.scrollY > 300) {
+                btn.classList.add('visible');
+            } else {
+                btn.classList.remove('visible');
+            }
+        });
+    </script>
+    <script src="script.js"></script>
+</body>
+
+</html>

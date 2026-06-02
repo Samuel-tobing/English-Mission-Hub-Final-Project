@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English Mission Hub - Achievements</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800;900&family=Inter:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="app-container">
+        <div id="screen-achievements" class="screen active layout-app">
+            <aside class="sidebar">
+                <div class="sidebar-logo">EMH</div>
+                <nav class="sidebar-nav">
+                    <button class="nav-item" onclick="navigateTo('dashboard.html')"><i class="fa-solid fa-house"></i>
+                        <span>Dashboard</span></button>
+                    <button class="nav-item" onclick="navigateTo('map.html')"><i
+                            class="fa-solid fa-map-location-dot"></i> <span>Missions Map</span></button>
+                    <button class="nav-item" onclick="navigateTo('daily_challenge.html')"><i
+                            class="fa-solid fa-bolt"></i> <span>Daily Challenge</span></button>
+                    <button class="nav-item active" onclick="navigateTo('achievements.html')"><i
+                            class="fa-solid fa-medal"></i> <span>Achievements</span></button>
+                    <button class="nav-item" onclick="navigateTo('shop.html')"><i class="fa-solid fa-store"></i>
+                        <span>Shop</span></button>
+
+                </nav>
+                <div class="sidebar-bottom">
+                    <button class="nav-item" onclick="navigateTo('settings.html')"><i class="fa-solid fa-user-edit"></i>
+                        <span>Edit Profile</span></button>
+                    <button class="nav-item text-danger" onclick="logout()"><i
+                            class="fa-solid fa-right-from-bracket"></i> <span>Logout</span></button>
+                </div>
+            </aside>
+            <main class="main-content">
+                <header class="topbar">
+                    <div class="greeting">
+                        <h2>Your Badges</h2>
+                        <p>Complete missions to unlock unique achievements.</p>
+                    </div>
+                </header>
+
+                <div class="achievements-grid" id="achievements-dynamic-grid">
+                    <!-- Achievements will be rendered here dynamically -->
+                </div>
+            </main>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

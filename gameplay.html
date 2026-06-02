@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English Mission Hub - Gameplay</title>
+    <meta name="description" content="Play interactive English learning missions with Time-Attack mode and vocabulary flashcards.">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800;900&family=Inter:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="app-container">
+        <!-- 6. GAMEPLAY PAGE -->
+        <div id="screen-gameplay" class="screen active layout-gameplay">
+            <header class="gameplay-hud glass-card">
+                <button class="btn-icon" onclick="navigateTo('map.html')"><i
+                        class="fa-solid fa-arrow-left"></i></button>
+                <div class="mission-title-hud">
+                    <h3 id="gp-title">Mission Title</h3>
+                </div>
+                <div class="gameplay-stats">
+                    <!-- Time-Attack Timer (Always On) -->
+                    <div class="timer-display" id="ta-timer-display">
+                        <i class="fa-solid fa-clock"></i>
+                        <span id="ta-timer-value">60</span>s
+                    </div>
+                    
+                    <div class="progress-bar-container mini">
+                        <div class="progress-bar fill-accent" id="gp-progress" style="width: 20%;"></div>
+                    </div>
+                    <span id="gp-progress-text">1/5</span>
+                </div>
+            </header>
+
+            <main class="gameplay-area">
+                <!-- NPC / Scenario Image -->
+                <div class="npc-area">
+                    <img src="https://api.dicebear.com/7.x/bottts/svg?seed=Staff" alt="NPC" class="npc-avatar"
+                        id="gp-npc-img">
+                    <div class="chat-bubble npc-bubble" id="gp-npc-text">
+                        "Loading dialogue..."
+                    </div>
+                </div>
+
+                <!-- Interaction Area -->
+                <div class="interaction-area glass-card" id="gp-interaction-area">
+                    <!-- Options will be injected here by JS -->
+                </div>
+            </main>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
