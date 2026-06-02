@@ -2612,16 +2612,16 @@ body.theme-sunset .glass-card {
 
 /* Achievement Animation */
 @keyframes slideInGlow {
-    0% { transform: translateY(100px) scale(0.8); opacity: 0; }
-    50% { transform: translateY(-10px) scale(1.05); opacity: 1; box-shadow: 0 0 30px rgba(59, 130, 246, 0.8); }
-    100% { transform: translateY(0) scale(1); opacity: 1; box-shadow: 0 0 20px rgba(59, 130, 246, 0.5); }
+    0% { transform: translate(-50%, -50%) scale(0.5); opacity: 0; }
+    50% { transform: translate(-50%, -50%) scale(1.08); opacity: 1; box-shadow: 0 0 40px rgba(59, 130, 246, 0.8); }
+    100% { transform: translate(-50%, -50%) scale(1); opacity: 1; box-shadow: 0 0 20px rgba(59, 130, 246, 0.5); }
 }
 
 .achievement-popup {
     position: fixed;
-    bottom: 40px;
+    top: 50%;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translate(-50%, -50%);
     background: linear-gradient(135deg, rgba(30, 41, 59, 0.95), rgba(15, 23, 42, 0.95));
     border: 2px solid var(--primary-blue);
     border-radius: 20px;
