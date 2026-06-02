@@ -360,6 +360,7 @@ function handleLogin(event) {
             // Check level-based achievements (e.g. from placement test)
             if (currentUser.level >= 5) unlockAchievement('ach_level_5');
             if (currentUser.level >= 10) unlockAchievement('ach_level_10');
+            if (currentUser.level >= 20) unlockAchievement('ach_level_20');
 
             navigateTo('dashboard.html');
         } else {
@@ -709,6 +710,11 @@ function equipItem(itemId) {
     updateShopUI();
     applyCosmetics();
     showShopNotification(`${item.name} equipped!`, 'equip');
+
+    if (currentUser.activeTheme && currentUser.activeTheme !== 'default' && 
+        currentUser.activeBorder && currentUser.activeBorder !== 'default') {
+        unlockAchievement('ach_fashionista');
+    }
 }
 
 function unequipItem(itemId) {
@@ -802,7 +808,12 @@ const achievementsData = [
     { id: 'ach_first_mission', title: 'Frequent Flyer', desc: 'Complete your first map mission.', icon: 'fa-plane', iconColor: 'text-blue' },
     { id: 'ach_level_5', title: 'Rising Star', desc: 'Reach Level 5.', icon: 'fa-star', iconColor: 'text-gold' },
     { id: 'ach_level_10', title: 'English Master', desc: 'Reach Level 10.', icon: 'fa-graduation-cap', iconColor: 'text-purple' },
+    { id: 'ach_level_20', title: 'English Guru', desc: 'Reach Level 20.', icon: 'fa-crown', iconColor: 'text-gold' },
     { id: 'ach_shop_buyer', title: 'Big Spender', desc: 'Purchase your first item from the Shop.', icon: 'fa-cart-shopping', iconColor: 'text-success' },
+    { id: 'ach_wealthy', title: 'Wealthy Learner', desc: 'Accumulate 100 coins.', icon: 'fa-coins', iconColor: 'text-gold' },
+    { id: 'ach_fashionista', title: 'Fashionista', desc: 'Equip a custom theme and border.', icon: 'fa-palette', iconColor: 'text-purple' },
+    { id: 'ach_perfect_score', title: 'A+ Student', desc: 'Score an A (100%) on any mission.', icon: 'fa-check-double', iconColor: 'text-success' },
+    { id: 'ach_flashcard_learner', title: 'Memory Master', desc: 'Flip 10 flashcards.', icon: 'fa-brain', iconColor: 'text-blue' },
     { id: 'ach_daily_grind', title: 'Daily Grind', desc: 'Play the Daily Challenge.', icon: 'fa-bolt', iconColor: 'text-orange' }
 ];
 
@@ -1887,6 +1898,10 @@ function finishMultiRoundGameplay() {
     currentUser.xp += resultData.xpEarned;
     checkLevelUp();
     unlockAchievement('ach_first_mission');
+    
+    if (ratio >= 1) unlockAchievement('ach_perfect_score');
+    if (currentUser.coins >= 100) unlockAchievement('ach_wealthy');
+    
     saveUser();
 
     localStorage.setItem('emh_last_result', JSON.stringify(resultData));
@@ -1923,6 +1938,7 @@ function checkLevelUp() {
         
         if (currentUser.level >= 5) unlockAchievement('ach_level_5');
         if (currentUser.level >= 10) unlockAchievement('ach_level_10');
+        if (currentUser.level >= 20) unlockAchievement('ach_level_20');
     }
 }
 
@@ -2142,6 +2158,15 @@ function flipFlashcard() {
     if (flashcardEl) {
         flashcardEl.classList.toggle('flipped');
         playSFX('click');
+        
+        // Track flashcard flips for achievement
+        if (flashcardEl.classList.contains('flipped')) {
+            currentUser.flashcardFlips = (currentUser.flashcardFlips || 0) + 1;
+            if (currentUser.flashcardFlips >= 10) {
+                unlockAchievement('ach_flashcard_learner');
+            }
+            saveUser();
+        }
     }
 }
 
