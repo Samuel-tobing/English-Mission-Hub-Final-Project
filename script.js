@@ -860,7 +860,7 @@ function unlockAchievement(achId) {
         popup.style.animation = 'none'; // reset
         popup.style.transition = 'all 0.5s ease';
         popup.style.opacity = '0';
-        popup.style.transform = 'translate(-50%, 50px)';
+        popup.style.transform = 'translate(-50%, -50%) scale(0.8)';
         setTimeout(() => popup.remove(), 500);
     }, 4000);
 }
